@@ -1,5 +1,5 @@
 
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { WTimeDialogComponent } from '../w-time-dialog/w-time-dialog.component';
@@ -14,6 +14,7 @@ import { ITime } from '../w-clock/w-clock.component';
 })
 
 export class WMatTimePickerComponent implements OnInit {
+    @ViewChild('timeInput') private time_input: ElementRef;
 
     @Input() userTime: ITime;
     @Output() userTimeChange: EventEmitter<ITime> = new EventEmitter();
@@ -36,7 +37,7 @@ export class WMatTimePickerComponent implements OnInit {
         }
     }
 
-    private get time(): string {
+    public get time(): string {
 
         if (!this.userTime) {
             return '';
@@ -64,7 +65,6 @@ export class WMatTimePickerComponent implements OnInit {
             return `${hour}:${this.userTime.minute} ${meriden}`;
         }
     }
-
 
     public showPicker($event) {
 
