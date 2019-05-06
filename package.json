@@ -1,6 +1,6 @@
 {
-  "name": "material-time-control",
-  "version": "0.1.0",
+  "name": "ngx-material-time-control",
+  "version": "1.0.0",
   "license": "MIT",
   "private": false,
   "main": "material-time-control.module.ts",
